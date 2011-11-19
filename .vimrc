@@ -1,7 +1,6 @@
 " .vimrc
 " Author: Benjamin Mårtensson <benji@psy.nu>
 " Source: https://github.com/bmartensson/vimrc
-" File is changing often, and comments are missing for many of the otions.
 
 " leader
 let mapleader = "-"
