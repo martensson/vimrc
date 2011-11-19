@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/benji/Dropbox'
-let g:netrw_dirhist_2='/Users/benji/Dropbox/Private'
-let g:netrw_dirhist_3='/Users/benji/Dropbox/Private/code'
-let g:netrw_dirhist_4='/home/n22280/svn/puppet/modules/munin-server/manifests'
