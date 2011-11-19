@@ -85,10 +85,12 @@ set statusline+=\ (line\ %l\/%L,\ col\ %c)
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
-" quick editing vimrc
+
+" quick maps
 nnoremap <leader>v :vsplit $MYVIMRC<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>
-nnoremap <leader>h :split ~/.vim/vimtips/vimtips.txt<cr>
+nnoremap <leader>h :split ~/.vim/text/vimtips.txt<cr>
+inoremap jk <esc>
 
 " resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
