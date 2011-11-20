@@ -2,17 +2,19 @@
 " Author: Benjamin Mårtensson <benji@psy.nu>
 " Source: https://github.com/bmartensson/vimrc
 
-" leader
-let mapleader = "-"
-
+" syntax highlight
+set background=dark 
+set t_Co=256
 let g:molokai_original = 1 
 colorscheme molokai
 syntax on
+
+" leader
+let mapleader = "-"
+
 set encoding=utf-8
 set nocompatible
 set guioptions-=T " hide meny bar in gvim/macvim
-set background=dark 
-set t_Co=256 " needed for 256 colors.
 set visualbell
 set cursorline
 set ttyfast
@@ -91,6 +93,13 @@ nnoremap <leader>v :vsplit $MYVIMRC<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>h :split ~/.vim/text/vimtips.txt<cr>
 inoremap jk <esc>
+
+" Lets relearn our brain...
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+inoremap <esc> <nop>
 
 " resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
