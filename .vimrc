@@ -95,11 +95,11 @@ nnoremap <leader>h :split ~/.vim/text/vimtips.txt<cr>
 inoremap jk <esc>
 
 " Lets relearn our brain...
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-inoremap <esc> <nop>
+"noremap <Up> <nop>
+"noremap <Down> <nop>
+"noremap <Left> <nop>
+"noremap <Right> <nop>
+"inoremap <esc> <nop>
 
 " resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
