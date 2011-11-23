@@ -5,7 +5,7 @@
 " syntax highlight
 set background=dark 
 set t_Co=256
-let g:molokai_original = 1 
+" let g:molokai_original = 1 
 colorscheme molokai
 syntax on
 
@@ -39,10 +39,6 @@ set matchtime=3
 set hlsearch
 set splitbelow
 set splitright
-
-" regex searching
-nnoremap / /\v 
-vnoremap / /\v
 
 " backup
 set undodir=~/.vim/tmp/undo/     
@@ -86,7 +82,6 @@ set statusline+=\ (line\ %l\/%L,\ col\ %c)
 
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null
-
 
 " quick maps
 nnoremap <leader>v :vsplit $MYVIMRC<cr>
