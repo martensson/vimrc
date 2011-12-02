@@ -3,9 +3,9 @@
 " Source: https://github.com/bmartensson/vimrc
 
 " syntax highlight
-set background=dark 
+set background=dark
 set t_Co=256
-" let g:molokai_original = 1 
+" let g:molokai_original = 1
 colorscheme molokai
 syntax on
 
@@ -41,9 +41,9 @@ set splitbelow
 set splitright
 
 " backup
-set undodir=~/.vim/tmp/undo/     
-set backupdir=~/.vim/tmp/backup/ 
-set directory=~/.vim/tmp/swap/ 
+set undodir=~/.vim/tmp/undo/
+set backupdir=~/.vim/tmp/backup/
+set directory=~/.vim/tmp/swap/
 set backup
 
 " width
@@ -86,6 +86,7 @@ cmap w!! w !sudo tee % >/dev/null
 " quick maps
 nnoremap <leader>v :vsplit $MYVIMRC<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>
+nnoremap <leader>w :%s/\s\+$//<cr>
 nnoremap <leader>h :split ~/.vim/text/vimtips.txt<cr>
 inoremap jk <esc>
 
@@ -98,3 +99,11 @@ inoremap jk <esc>
 
 " resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+augroup remember_position
+autocmd!
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+\| exe "normal g`\"" | endif
+augroup END
