@@ -3,6 +3,7 @@
 " Source: https://github.com/bmartensson/vimrc
 
 " syntax highlight
+set shell=bash
 set background=dark
 set t_Co=256
 colorscheme molokai
