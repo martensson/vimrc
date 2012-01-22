@@ -2,6 +2,9 @@
 " Author: Benjamin Mårtensson <benji@psy.nu>
 " Source: https://github.com/bmartensson/vimrc
 
+" Pathogen
+call pathogen#infect()
+
 " syntax highlight
 set shell=bash
 set background=dark
