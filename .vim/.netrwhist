@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/n22280/Dropbox/Private/config/.oh-my-zsh/plugins/terminitor'
+let g:netrw_dirhist_2='/Users/n22280/Dropbox/Private/config/.oh-my-zsh/plugins/python'
+let g:netrw_dirhist_3='/Users/n22280/.oh-my-zsh'
+let g:netrw_dirhist_4='/Users/n22280/Dropbox/Private/config/.oh-my-zsh/plugins'
+let g:netrw_dirhist_5='/Users/n22280/Dropbox/Private/config/.oh-my-zsh/plugins/ssh-agent'
+let g:netrw_dirhist_6='/Users/benji/.ssh'
+let g:netrw_dirhist_7='/Users/benji'
