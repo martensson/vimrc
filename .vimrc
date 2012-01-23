@@ -17,7 +17,7 @@ let mapleader = "-"
 
 set encoding=utf-8
 set nocompatible
-set guioptions-=T " hide meny bar in gvim/macvim
+set guioptions-=T " hide menu bar in gvim/macvim
 set visualbell
 set cursorline
 set ttyfast
@@ -56,7 +56,6 @@ set formatoptions=qrn1
 set colorcolumn=+1
 
 " some random improvements
-set encoding=utf-8
 set scrolloff=3 " Number of lines above/below cursor
 set autoindent
 set showmode
@@ -90,15 +89,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <leader>v :vsplit $MYVIMRC<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>w :%s/\s\+$//<cr>
-nnoremap <leader>h :split ~/.vim/text/vimtips.txt<cr>
 inoremap jk <esc>
-
-" Lets relearn our brain...
-"noremap <Up> <nop>
-"noremap <Down> <nop>
-"noremap <Left> <nop>
-"noremap <Right> <nop>
-"inoremap <esc> <nop>
 
 " resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
