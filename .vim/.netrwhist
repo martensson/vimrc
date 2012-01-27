@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/n22280/Dropbox/Private/config/.oh-my-zsh/plugins/terminitor'
 let g:netrw_dirhist_2='/Users/n22280/Dropbox/Private/config/.oh-my-zsh/plugins/python'
 let g:netrw_dirhist_3='/Users/n22280/.oh-my-zsh'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/Users/n22280/Dropbox/Private/config/.oh-my-zsh/plugins/s
 let g:netrw_dirhist_6='/Users/benji/.ssh'
 let g:netrw_dirhist_7='/Users/benji'
 let g:netrw_dirhist_8='/Users/n22280/Dropbox/Private/config/vim/.vim/text'
+let g:netrw_dirhist_9='/Users/benji/Dropbox/Private/config/vim/.vim'
