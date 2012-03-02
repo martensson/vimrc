@@ -6,11 +6,14 @@
 call pathogen#infect()
 
 " syntax highlight
+syntax on
 set shell=bash
 set background=dark
 set t_Co=256
 colorscheme molokai
-syntax on
+"let g:solarized_termcolors=256
+"set background=light
+"colorscheme solarized
 
 " leader
 let mapleader = "-"
@@ -53,7 +56,7 @@ set backup
 set wrap
 set textwidth=85
 set formatoptions=qrn1
-set colorcolumn=+1
+" set colorcolumn=+1
 
 " some random improvements
 set scrolloff=3 " Number of lines above/below cursor
