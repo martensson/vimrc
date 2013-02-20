@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/etc/apache2/sites-enabled'
+let g:netrw_dirhist_2='/Users/n22280/Documents/git/puppet/modules/varnish/templates/skole-prod'
+let g:netrw_dirhist_3='/Users/benji/Dropbox/Private/code/pyaiml/alice'

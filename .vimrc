@@ -11,12 +11,13 @@ set shell=bash
 set background=dark
 set t_Co=256
 colorscheme molokai
-"let g:solarized_termcolors=256
-"set background=light
-"colorscheme solarized
 
 " leader
 let mapleader = "-"
+
+" fix anoying jk wrapped lines movement
+nmap j gj
+nmap k gk
 
 set encoding=utf-8
 set nocompatible
