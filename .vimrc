@@ -3,7 +3,22 @@
 " Source: https://github.com/bmartensson/vimrc
 
 " Pathogen
-call pathogen#infect()
+" call pathogen#infect()
+
+" Vundle
+set nocompatible               " be iMproved
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+filetype plugin indent on
+Bundle 'gmarik/vundle' 
+
+" My Bundles
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'Lokaltog/vim-powerline'
 
 " syntax highlight
 syntax on
@@ -20,7 +35,6 @@ nmap j gj
 nmap k gk
 
 set encoding=utf-8
-set nocompatible
 set guioptions-=T " hide menu bar in gvim/macvim
 set visualbell
 set cursorline
