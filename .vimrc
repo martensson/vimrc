@@ -2,9 +2,6 @@
 " Author: Benjamin Mårtensson <benji@psy.nu>
 " Source: https://github.com/bmartensson/vimrc
 
-" Pathogen
-" call pathogen#infect()
-
 " Vundle
 set nocompatible               " be iMproved
 filetype off
@@ -46,9 +43,9 @@ set laststatus=2
 set undofile
 
 " indent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " search
@@ -111,7 +108,7 @@ inoremap jk <esc>
 
 " resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
-
+    
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 augroup remember_position
