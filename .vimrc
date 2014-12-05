@@ -5,23 +5,70 @@
 " Vundle
 set nocompatible               " be iMproved
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-filetype plugin indent on
-Bundle 'gmarik/vundle' 
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
 
-" My Bundles
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'Lokaltog/vim-powerline'
+" My Plugins
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+Plugin 'hdima/python-syntax'
+Plugin 'tomasr/molokai'
+Plugin 'fatih/vim-go'
+Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'Raimondi/delimitMate'
+Plugin 'smerrill/vcl-vim-plugin'
+Plugin 'rodjek/vim-puppet'
+Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'ervandew/supertab'
+
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Plugin settings
+let g:go_bin_path = expand("~/.go/bin")
+let g:go_fmt_command = "goimports"
+let g:gitgutter_realtime = 1
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+let g:airline_theme='badwolf'
+let g:ctrlp_follow_symlinks = 2
+let g:vim_markdown_folding_disabled=1
+let g:SuperTabDefaultCompletionType = "context"
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Lets make Vim python pep8 compliant.
+set textwidth=79  " lines longer than 79 columns will be broken
+set shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
+set tabstop=4     " an hard TAB displays as 4 columns
+set expandtab     " insert spaces when hitting TABs
+set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+set shiftround    " round indent to multiple of 'shiftwidth'
+set autoindent    " align the new line indent with the previous line
+set wrap
+set formatoptions=qrn1
+" set colorcolumn=+1
 
 " syntax highlight
 syntax on
 set shell=bash
 set background=dark
 set t_Co=256
+"let g:molokai_original=1
+let g:rehash256=1
 colorscheme molokai
 
 " leader
@@ -39,14 +86,8 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-" set relativenumber " Not always useful
+set number
 set undofile
-
-" indent
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
 
 " search
 set ignorecase
@@ -64,15 +105,8 @@ set backupdir=~/.vim/tmp/backup/
 set directory=~/.vim/tmp/swap/
 set backup
 
-" width
-set wrap
-set textwidth=85
-set formatoptions=qrn1
-" set colorcolumn=+1
-
 " some random improvements
 set scrolloff=3 " Number of lines above/below cursor
-set autoindent
 set showmode
 set showcmd
 set hidden
@@ -91,11 +125,11 @@ set wildignore+=*.DS_Store? " OSX bullshit
 set backupskip=/tmp/*,/private/tmp/*"
 
 " status line
-set statusline=%F%m%r%h%w
-set statusline+=\ %#warningmsg#
-set statusline+=%*
-set statusline+=%=(%{&ff}/%Y)
-set statusline+=\ (line\ %l\/%L,\ col\ %c)
+"set statusline=%F%m%r%h%w
+"set statusline+=\ %#warningmsg#
+"set statusline+=%*
+"set statusline+=%=(%{&ff}/%Y)
+"set statusline+=\ (line\ %l\/%L,\ col\ %c)
 
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null
