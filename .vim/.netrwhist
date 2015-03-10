@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/benji/.config'
-let g:netrw_dirhist_2='/Users/n22280/Documents/git/ansible/playbooks/mobil/group_vars'
-let g:netrw_dirhist_3='/Users/n22280/Documents/git/ansible/playbooks/tomcat-deploy/group_vars'
-let g:netrw_dirhist_4='/Users/n22280/Documents/git/ansible/playbooks/tomcat-deploy/hosts'
-let g:netrw_dirhist_5='/Users/n22280/.go'
-let g:netrw_dirhist_6='/Users/n22280/Dropbox/Private/config/vim/.vim/bundle/vim-go/ftdetect'
-let g:netrw_dirhist_7='/Users/n22280/Documents/git/puppet/modules/varnish/templates/mobil-prod'

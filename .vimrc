@@ -2,38 +2,39 @@
 " Author: Benjamin Mårtensson <benji@psy.nu>
 " Source: https://github.com/bmartensson/vimrc
 
-" Vundle
 set nocompatible               " be iMproved
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+
+call plug#begin('~/.vim/plugged')
 
 " My Plugins
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
-Plugin 'hdima/python-syntax'
-Plugin 'tomasr/molokai'
-Plugin 'fatih/vim-go'
-Plugin 'honza/vim-snippets'
-Plugin 'SirVer/ultisnips'
-Plugin 'Raimondi/delimitMate'
-Plugin 'smerrill/vcl-vim-plugin'
-Plugin 'rodjek/vim-puppet'
-Plugin 'kien/ctrlp.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'reedes/vim-colors-pencil'
-Plugin 'ervandew/supertab'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'bling/vim-airline'
+Plug 'hdima/python-syntax'
+Plug 'tomasr/molokai'
+Plug 'fatih/vim-go'
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'Raimondi/delimitMate'
+Plug 'smerrill/vcl-vim-plugin'
+Plug 'rodjek/vim-puppet'
+Plug 'kien/ctrlp.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'altercation/vim-colors-solarized'
+Plug 'reedes/vim-colors-pencil'
+Plug 'mhinz/vim-startify'
+Plug 'ervandew/supertab'
+Plug 'ryanss/vim-hackernews'
+Plug 'joshhartigan/vim-reddit'
 
-
-call vundle#end()            " required
+call plug#end()
 filetype plugin indent on    " required
 
 " Plugin settings
@@ -67,7 +68,6 @@ syntax on
 set shell=bash
 set background=dark
 set t_Co=256
-"let g:molokai_original=1
 let g:rehash256=1
 colorscheme molokai
 
@@ -124,19 +124,11 @@ set wildignore+=*.DS_Store? " OSX bullshit
 " make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
 
-" status line
-"set statusline=%F%m%r%h%w
-"set statusline+=\ %#warningmsg#
-"set statusline+=%*
-"set statusline+=%=(%{&ff}/%Y)
-"set statusline+=\ (line\ %l\/%L,\ col\ %c)
-
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
 " quick maps
-nnoremap <leader>v :vsplit $MYVIMRC<cr>
-nnoremap <leader>s :source $MYVIMRC<cr>
+nnoremap <leader>s :source $MYVIMRC<cr> " reload vimrc
 nnoremap <leader>w :%s/\s\+$//<cr>
 inoremap jk <esc>
 
