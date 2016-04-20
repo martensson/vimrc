@@ -1,1 +1,2 @@
-my `.vimrc` / `init.vim` adapted to neovim.
+my init.vim adapted to neovim.
+symlink/rename to .vimrc if using vim.
