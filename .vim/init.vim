@@ -6,21 +6,17 @@ set nocompatible               " be iMproved
 filetype off
 
 call plug#begin('~/.vim/plugged')
-
 " PLUGINS
 
 " Visual stuff
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
-Plug 'w0ng/vim-hybrid'
-Plug 'nanotech/jellybeans.vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'reedes/vim-colors-pencil'
 Plug 'cespare/vim-toml'
 
 " Markdown / Writing
-Plug 'junegunn/goyo.vim'
 Plug 'plasticboy/vim-markdown'
 
 " Git
@@ -29,12 +25,11 @@ Plug 'tpope/vim-fugitive'
 
 " Navigation
 Plug 'scrooloose/nerdtree'
-Plug 'mhinz/vim-startify'
+Plug 'mbbill/undotree'
 
 " Hacking
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
-Plug 'Lokaltog/vim-easymotion'
 Plug 'klen/python-mode'
 Plug 'fatih/vim-go'
 Plug 'honza/vim-snippets'
@@ -54,25 +49,23 @@ call plug#end()
 filetype plugin indent on    " required
 
 " Plugin settings
-let g:go_bin_path = expand("~/.go/bin")
+let g:go_bin_path = expand("~/Dropbox/Private/code/go/bin")
 let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
-let g:gitgutter_realtime = 1
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-let g:ctrlp_follow_symlinks = 2
-let g:vim_markdown_folding_disabled=1
-let g:SuperTabDefaultCompletionType = "context"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let g:gitgutter_realtime = 1
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
+let g:ctrlp_follow_symlinks = 2
+let g:vim_markdown_folding_disabled=1
+let g:SuperTabDefaultCompletionType = "context"
 
-" Lets make Vim python pep8 compliant.
 set textwidth=79  " lines longer than 79 columns will be broken
 set shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
 set tabstop=4     " an hard TAB displays as 4 columns
@@ -82,16 +75,19 @@ set shiftround    " round indent to multiple of 'shiftwidth'
 set autoindent    " align the new line indent with the previous line
 set wrap
 set formatoptions=qrn1
-" set colorcolumn=+1
 
-" syntax highlight
+" sync wih os clipboard
+set clipboard=unnamed
+
+" visual settings
 syntax on
 set shell=bash
 set background=dark
-set t_Co=256
-let g:rehash256=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " True gui colors in terminal
+"set t_Co=256
+"let g:rehash256=1
 colorscheme molokai
-let g:airline_theme='hybridline'
+let g:airline_theme='raven'
 
 " leader
 let mapleader = "\<Space>"
@@ -136,11 +132,6 @@ set hidden
 " wildmenu
 set wildmenu
 set wildmode=list:longest
-set wildignore+=.hg,.git,.svn " Version control
-set wildignore+=*.jpg,*.gif,*.png,*.jpeg " binary images
-set wildignore+=*.pyc " Python byte code
-set wildignore+=*.sw? " Vim swap files
-set wildignore+=*.DS_Store? " OSX bullshit
 
 " make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
@@ -149,11 +140,10 @@ set backupskip=/tmp/*,/private/tmp/*"
 cmap w!! w !sudo tee % >/dev/null
 
 " quick maps
-nnoremap <leader>s :source $MYVIMRC<cr> " reload vimrc
 nnoremap <leader>w :%s/\s\+$//<cr>
 inoremap jk <esc>
 
-" GO stuff
+" Go stuff
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
@@ -176,21 +166,7 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 \| exe "normal g`\"" | endif
 augroup END
 
-" Blink1 stuff
-"augroup blink1
-"autocmd!
-"autocmd InsertEnter * silent! call system('blink1-tool --blue -m0')
-"autocmd InsertLeave * silent! call system('blink1-tool --green -m0')
-"autocmd VimEnter * silent! call system('blink1-tool --green -m1000')
-"autocmd VimLeave * silent! call system('blink1-tool --off -m1000')
-"autocmd BufWrite * silent! call system('blink1-tool --red -m0 && blink1-tool --green -m 1000')
-"autocmd CursorHoldI * silent! call system('blink1-tool --rgb=0,100,100 -m 3000')
-"autocmd CursorMovedI * silent! call system('blink1-tool --rgb=0,200,255 -m 3000')
-"autocmd CursorHold * silent! call system('blink1-tool --rgb=100,100,0 -m 3000')
-"autocmd CursorMoved * silent! call system('blink1-tool --rgb=0,255,0 -m0 -m 3000')
-"augroup END
-
-" To fix navigaion in nvim terminal
+" To fix navigaion in neovim terminal
 if has('nvim')
   tnoremap jk <c-\><c-n>
 endif
