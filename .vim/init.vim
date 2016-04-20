@@ -1,8 +1,8 @@
 " .vimrc
 " Author: Benjamin Mårtensson <benjamin@martensson.io>
-" Source: https://github.com/bmartensson/vimrc
+" Source: https://github.com/martensson/vimrc
 
-set nocompatible               " be iMproved
+set nocompatible
 filetype off
 
 call plug#begin('~/.vim/plugged')
