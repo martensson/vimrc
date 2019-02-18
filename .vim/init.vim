@@ -5,6 +5,11 @@
 set nocompatible
 filetype off
 
+" fix for python 3.7 https://github.com/vim/vim/issues/3117
+if has('python3')
+  silent! python3 1
+endif
+
 call plug#begin('~/.vim/plugged')
 " PLUGINS
 
@@ -13,11 +18,21 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
 Plug 'reedes/vim-colors-pencil'
+Plug 'chriskempson/base16-vim'
 Plug 'cespare/vim-toml'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'saltstack/salt-vim'
+Plug 'dag/vim-fish'
 
 " Markdown / Writing
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'plasticboy/vim-markdown'
+Plug 'reedes/vim-pencil'
+let g:pandoc#syntax#conceal#use = 0
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -26,24 +41,23 @@ Plug 'tpope/vim-fugitive'
 " Navigation
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
+Plug 'easymotion/vim-easymotion'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Hacking
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
-Plug 'klen/python-mode'
 Plug 'fatih/vim-go'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
 Plug 'smerrill/vcl-vim-plugin'
-Plug 'rodjek/vim-puppet'
 Plug 'kien/ctrlp.vim'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
-
-" Extra fun stuff
-Plug 'ryanss/vim-hackernews'
-Plug 'joshhartigan/vim-reddit'
+Plug 'scrooloose/nerdcommenter'
+Plug 'jamessan/vim-gnupg'
 
 call plug#end()
 filetype plugin indent on    " required
@@ -65,6 +79,8 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ctrlp_follow_symlinks = 2
 let g:vim_markdown_folding_disabled=1
 let g:SuperTabDefaultCompletionType = "context"
+let g:pandoc#modules#disabled = ["folding"]
+let g:GPGPreferSymmetric = 1
 
 set textwidth=79  " lines longer than 79 columns will be broken
 set shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
@@ -83,11 +99,15 @@ set clipboard=unnamed
 syntax on
 set shell=bash
 set background=dark
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " True gui colors in terminal
-"set t_Co=256
-"let g:rehash256=1
-colorscheme molokai
-let g:airline_theme='raven'
+set termguicolors " True gui colors in terminal
+colorscheme dracula
+let g:airline_theme='dracula'
+
+" improve markdown writing in vim
+autocmd BufEnter *.md setlocal nonumber
+autocmd BufEnter *.md setlocal spelllang=es
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " leader
 let mapleader = "\<Space>"
@@ -96,8 +116,11 @@ let mapleader = "\<Space>"
 nmap j gj
 nmap k gk
 
-set encoding=utf-8
-set guioptions-=T " hide menu bar in gvim/macvim
+" Faster movement with easymotion
+nmap s <Plug>(easymotion-s2)
+nmap f <Plug>(easymotion-wl)
+nmap F <Plug>(easymotion-bd-wl)
+
 set visualbell
 set cursorline
 set ttyfast
@@ -105,6 +128,11 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set number
+
+" MacVim settings
+if has("gui_macvim")
+  set guioptions-=T " hide menu bar in gvim/macvim
+endif
 
 " search
 set ignorecase
@@ -165,8 +193,3 @@ autocmd!
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 \| exe "normal g`\"" | endif
 augroup END
-
-" To fix navigaion in neovim terminal
-if has('nvim')
-  tnoremap jk <c-\><c-n>
-endif
